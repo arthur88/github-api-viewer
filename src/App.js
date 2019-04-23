@@ -1,21 +1,31 @@
-import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
-import Header from "./Components/Header";
-import Viewer from "./Components/Viewer";
+import React from "react";
+import Git from "./Git";
 
-class App extends Component {
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      gituname: ""
+    };
+  }
+
+  handleChange = e => {
+    this.setState({ gituname: e.target.value });
+  };
+
   render() {
     return (
-      <div className="container-fluid">
-        <Header />
-        <main>
-          <Switch>
-            <Route exact path="/" Component={Viewer} />
-          </Switch>
-        </main>
+      <div className="search-firm-inline">
+        <input
+          type="text"
+          name="gituname"
+          className="form-control"
+          placeholder="Github username"
+          value={this.state.gituname}
+          onChange={this.handleChange}
+        />
+        <Git gitusername={this.state.gituname} />
       </div>
     );
   }
 }
-
-export default App;
