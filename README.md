@@ -1,17 +1,14 @@
 # github-api-viewer
 
+### React application to show user details from GIT by using API
 
-### View user details from GIT by using username
+
+#### Build made without axios library
 
 
-[Live version]{https://codesandbox.io/s/lxj7388koz}
+Live version - https://codesandbox.io/s/4z4xw2qxx
 
 
 ```
-axios
-      .get(
-        window.encodeURI(
-          `https://api.github.com/search/repositories?q=stars:>1+language:javascript&sort=stars&order=desc&type=Repositories`,
-        ),
-      )
+fetch("https://api.github.com/users/" + this.props.gitusername)
 ```      
